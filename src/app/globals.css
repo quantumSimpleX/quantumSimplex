@@ -507,6 +507,7 @@ html, body {
 .qs-footer { background: var(--bg-1); border-top: 2px solid var(--qs-ink-900); }
 .qs-footer-main { max-width: var(--site-max); margin: 0 auto; padding: 72px var(--site-pad) 56px; display: grid; grid-template-columns: 1.1fr 2fr; gap: 80px; }
 .qs-footer-brand p { font-family: var(--font-mono); font-size: 13px; color: var(--fg-3); margin: 0; line-height: 1.55; }
+.qs-footer-logo-link { display: block; width: fit-content; }
 .qs-footer-logo { height: 108px; display: block; margin-bottom: 20px; }
 .qs-footer-logo--dark { display: none !important; }
 .qs-footer-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }

@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { useState, useMemo, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useMemo, Suspense } from 'react';
 import { content, youtubeChannel } from '@/lib/data';
 import type { ContentItem, ContentType, Theme } from '@/lib/data';
 
@@ -17,11 +17,22 @@ const themeConfig = [
 ];
 
 function InsightsContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
-  const initialType = (searchParams.get('type') as ContentType | null) ?? 'all';
 
-  const [typeFilter, setTypeFilter] = useState<ContentType | 'all'>(initialType);
-  const [themeFilter, setThemeFilter] = useState<Theme | 'all'>('all');
+  const typeFilter = (searchParams.get('type') as ContentType | null) ?? 'all';
+  const themeFilter = (searchParams.get('theme') as Theme | null) ?? 'all';
+
+  function pushFilter(type: ContentType | 'all', theme: Theme | 'all') {
+    const params = new URLSearchParams();
+    if (type !== 'all') params.set('type', type);
+    if (theme !== 'all') params.set('theme', theme);
+    const qs = params.toString();
+    router.push(qs ? `/insights?${qs}` : '/insights', { scroll: false });
+  }
+
+  function setTypeFilter(t: ContentType | 'all') { pushFilter(t, themeFilter); }
+  function setThemeFilter(t: Theme | 'all') { pushFilter(typeFilter, t); }
 
   const filtered = useMemo(() => {
     return content.filter((c) => {
@@ -39,7 +50,7 @@ function InsightsContent() {
       <section className="qs-page-hero">
         <div className="qs-page-hero-inner">
           <span className="qs-page-hero-label">Thought Leadership</span>
-          <h1 className="qs-page-hero-h">THE ARCHIVE</h1>
+          <h1 className="qs-page-hero-h">THOUGHT LEADERSHIP</h1>
           <p className="qs-page-hero-lede">
             Two decades of public thinking on AI, machine learning, data science, and the human systems that make — or break — adoption.
           </p>
@@ -50,30 +61,33 @@ function InsightsContent() {
       </section>
 
       {/* FILTERS */}
-      <div className="qs-tl-filters">
-        <div className="qs-filter-bar" style={{ gap: 16, flexDirection: 'column', alignItems: 'flex-start' }}>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            {(['all', 'video', 'podcast', 'article', 'whitepaper'] as const).map((t) => (
-              <button
-                key={t}
-                className={`qs-filter-btn${typeFilter === t ? ' is-active' : ''}`}
-                onClick={() => setTypeFilter(t)}
-              >
-                {t === 'all' ? 'All types' : typeLabels[t as ContentType]}
-              </button>
-            ))}
-          </div>
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            {(['all', 'inspire', 'mobilize', 'transform'] as const).map((th) => (
-              <button
-                key={th}
-                className={`qs-filter-btn qs-filter-btn-sm${themeFilter === th ? ' is-active' : ''}`}
-                onClick={() => setThemeFilter(th)}
-              >
-                {th === 'all' ? 'All themes' : th.charAt(0).toUpperCase() + th.slice(1)}
-              </button>
-            ))}
-          </div>
+      <div id="filters" className="qs-tl-filters">
+        <div className="qs-filter-bar">
+          {([
+            { id: 'all', label: 'All topics' },
+            { id: 'inspire', label: 'Level 1 — Inspire' },
+            { id: 'mobilize', label: 'Level 2 — Mobilize' },
+            { id: 'transform', label: 'Level 3 — Transform' },
+          ] as const).map((th) => (
+            <button
+              key={th.id}
+              className={`qs-filter-btn${themeFilter === th.id ? ' is-active' : ''}`}
+              onClick={() => setThemeFilter(th.id as Theme | 'all')}
+            >
+              {th.label}
+            </button>
+          ))}
+        </div>
+        <div className="qs-filter-bar" style={{ paddingTop: 12, paddingBottom: 0 }}>
+          {(['all', 'video', 'podcast', 'article', 'whitepaper'] as const).map((t) => (
+            <button
+              key={t}
+              className={`qs-filter-btn qs-filter-btn-sm${typeFilter === t ? ' is-active' : ''}`}
+              onClick={() => setTypeFilter(t)}
+            >
+              {t === 'all' ? 'All formats' : typeLabels[t as ContentType]}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -101,7 +115,7 @@ function InsightsContent() {
                       <span className={`qs-archive-type-label ${item.type}`}>{typeLabels[item.type]}</span>
                       <span className="qs-archive-title">{item.title}</span>
                       <span className="qs-archive-source">{item.source}</span>
-                      <span className="qs-archive-year">{item.year ?? ''}</span>
+                      {item.year && <span className="qs-archive-year">{item.year}</span>}
                       <span className="qs-archive-arrow">→</span>
                     </a>
                   </li>

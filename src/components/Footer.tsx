@@ -12,11 +12,18 @@ export default function Footer() {
 
   const isDark = mounted && resolvedTheme === 'dark';
 
+  function scrollToFilters() {
+    const el = document.getElementById('filters');
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 88;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }
+
   return (
     <footer className="qs-footer">
       <div className="qs-footer-main">
         <div className="qs-footer-brand">
-          <Link href="/">
+          <Link href="/" className="qs-footer-logo-link">
             <img
               src="/assets/logo-black.svg"
               alt="Quantum Simplex"
@@ -43,10 +50,10 @@ export default function Footer() {
           <div className="qs-footer-col">
             <h4>Thought Leadership</h4>
             <ul>
-              <li><a href={youtubeChannel} target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
-              <li><Link href="/insights?type=article">Articles</Link></li>
-              <li><Link href="/insights?type=podcast">Podcasts</Link></li>
-              <li><Link href="/insights?type=whitepaper">White Papers</Link></li>
+              <li><a href={youtubeChannel} target="_blank" rel="noopener noreferrer">YouTube channel</a></li>
+              <li><Link href="/insights?type=article" onClick={scrollToFilters}>Articles</Link></li>
+              <li><Link href="/insights?type=podcast" onClick={scrollToFilters}>Podcasts</Link></li>
+              <li><Link href="/insights?type=whitepaper" onClick={scrollToFilters}>White papers</Link></li>
             </ul>
           </div>
           <div className="qs-footer-col">
