@@ -1,65 +1,138 @@
-import Image from "next/image";
+import Link from 'next/link';
+import ContentCard from '@/components/ContentCard';
+import { services, content, about, booking, publications, youtubeChannel } from '@/lib/data';
+import type { ContentItem } from '@/lib/data';
 
-export default function Home() {
+const sequenceColors = [
+  { name: 'n-aqua', tag: 't-aqua' },
+  { name: 'n-amethyst', tag: 't-amethyst' },
+  { name: 'n-white', tag: 't-white' },
+];
+
+function getFeatured(): ContentItem[] {
+  const themes = ['inspire', 'mobilize', 'transform'] as const;
+  return themes.map((theme) => {
+    const preferred = content.find((c) => c.theme === theme && (c.type === 'video' || c.type === 'podcast'));
+    return preferred ?? content.find((c) => c.theme === theme)!;
+  });
+}
+
+export default function HomePage() {
+  const featured = getFeatured();
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      {/* HERO */}
+      <section className="qs-hero">
+        <img src="/assets/icon-black.svg" alt="" className="qs-hero-watermark" aria-hidden />
+        <div className="qs-hero-inner">
+          <div className="qs-hero-content">
+            <span className="qs-hero-label">AI Transformation Advisory</span>
+            <h1 className="qs-hero-h">INSPIRE.<br />MOBILIZE.<br />TRANSFORM.</h1>
+            <p className="qs-hero-hook">
+              Most organizations don't have an AI problem. They have a clarity problem.
+            </p>
+            <p className="qs-hero-lede">
+              Dr. Michael Wu helps leadership teams cut through the noise — and build the internal capability to act on what actually matters.
+            </p>
+            <div className="qs-hero-ctas">
+              <Link href="/engage" className="qs-btn-hero-primary">Engage →</Link>
+              <Link href="/services" className="qs-btn-hero-ghost">Explore services</Link>
+            </div>
+          </div>
+          <div className="qs-hero-stats">
+            <div className="qs-hero-stat">
+              <div className="qs-hero-stat-n">20+</div>
+              <div className="qs-hero-stat-label">Years at the intersection of AI and human behavior</div>
+            </div>
+            <div className="qs-hero-stat">
+              <div className="qs-hero-stat-n">100+</div>
+              <div className="qs-hero-stat-label">Keynotes and executive sessions delivered</div>
+            </div>
+            <div className="qs-hero-stat">
+              <div className="qs-hero-stat-n">3</div>
+              <div className="qs-hero-stat-label">Sequential levels of AI transformation</div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* SEQUENCE STRIP */}
+      <section className="qs-sequence">
+        <div className="qs-sequence-inner">
+          {services.map((s, i) => (
+            <Link
+              key={s.level}
+              href={`/services#level-${s.level}`}
+              className="qs-sequence-item"
+              data-reveal=""
+              data-delay={String(i + 1)}
+            >
+              <span className="qs-sequence-lvl">LEVEL {String(s.level).padStart(2, '0')}</span>
+              <div className={`qs-sequence-name ${sequenceColors[i].name}`}>{s.name.toUpperCase()}</div>
+              <span className={`qs-sequence-tag ${sequenceColors[i].tag}`}>{s.tagline}</span>
+              <p className="qs-sequence-thread">{s.thread}</p>
+            </Link>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* PUBLICATIONS STRIP */}
+      <div className="qs-pubs">
+        <div className="qs-pubs-inner">
+          <span className="qs-pubs-label">As seen in</span>
+          <ul className="qs-pubs-list">
+            {publications.map((p) => (
+              <li key={p} className="qs-pubs-item">{p}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* ABOUT TEASER */}
+      <section className="qs-about">
+        <div className="qs-about-inner">
+          <div data-reveal="">
+            <span className="qs-about-label">About</span>
+            <h2 className="qs-about-name">{about.name.toUpperCase()}</h2>
+            <span className="qs-about-title">{about.title}</span>
+            <div className="qs-about-links">
+              <a href={about.linkedin} target="_blank" rel="noopener noreferrer" className="qs-about-link">LinkedIn ↗</a>
+              <a href={youtubeChannel} target="_blank" rel="noopener noreferrer" className="qs-about-link">YouTube ↗</a>
+            </div>
+          </div>
+          <div data-reveal="" data-delay="1">
+            <p className="qs-about-bio">{about.bio}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED THOUGHT LEADERSHIP */}
+      <section className="qs-featured">
+        <div className="qs-featured-head">
+          <h2 className="qs-featured-h">FEATURED THINKING</h2>
+          <Link href="/insights" className="qs-btn qs-btn-secondary">View all →</Link>
+        </div>
+        <div className="qs-featured-grid">
+          {featured.map((item) => (
+            <ContentCard key={item.url} item={item} />
+          ))}
+        </div>
+      </section>
+
+      {/* CTA BANNER */}
+      <section className="qs-cta-banner">
+        <div className="qs-cta-inner">
+          <div>
+            <h2 className="qs-cta-h">{booking.headline}</h2>
+            <p className="qs-cta-sub">{booking.lede}</p>
+          </div>
+          <div className="qs-cta-buttons">
+            <Link href="/engage" className="qs-btn-hero-primary">Schedule now →</Link>
+            <Link href="/services" className="qs-btn-hero-ghost">See the services</Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
