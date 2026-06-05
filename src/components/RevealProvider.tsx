@@ -23,12 +23,15 @@ export default function RevealProvider() {
       });
     };
 
-    scan();
+    // Defer the initial scan by one frame so React hydration finishes
+    // before we mutate data-rv-seen on server-rendered elements.
+    const raf = requestAnimationFrame(scan);
 
     const mo = new MutationObserver(scan);
     mo.observe(document.body, { childList: true, subtree: true });
 
     return () => {
+      cancelAnimationFrame(raf);
       observer.disconnect();
       mo.disconnect();
     };

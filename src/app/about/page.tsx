@@ -19,7 +19,7 @@ export default function AboutPage() {
       <section className="qs-page-hero">
         <div className="qs-page-hero-inner">
           <span className="qs-page-hero-label">About</span>
-          <h1 className="qs-page-hero-h">DR.<br />MICHAEL<br />WU</h1>
+          <h1 className="qs-page-hero-h">DR. MICHAEL WU</h1>
           <p className="qs-page-hero-lede" style={{ maxWidth: 480 }}>
             {about.title} — and the person organizations call when they need to move from AI anxiety to AI action.
           </p>
@@ -89,7 +89,7 @@ export default function AboutPage() {
                   <span className={`qs-archive-type-label ${item.type}`}>{typeLabels[item.type]}</span>
                   <span className="qs-archive-title">{item.title}</span>
                   <span className="qs-archive-source">{item.source}</span>
-                  <span className="qs-archive-year">{item.year ?? ''}</span>
+                  {item.year && <span className="qs-archive-year">{item.year}</span>}
                   <span className="qs-archive-arrow">→</span>
                 </a>
               </li>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                   <span className={`qs-archive-type-label ${item.type}`}>{typeLabels[item.type]}</span>
                   <span className="qs-archive-title">{item.title}</span>
                   <span className="qs-archive-source">{item.source}</span>
-                  <span className="qs-archive-year">{item.year ?? ''}</span>
+                  {item.year && <span className="qs-archive-year">{item.year}</span>}
                   <span className="qs-archive-arrow">→</span>
                 </a>
               </li>
