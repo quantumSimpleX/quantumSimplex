@@ -4,7 +4,6 @@ const typeLabels: Record<ContentItem['type'], string> = {
   video: 'Video',
   podcast: 'Podcast',
   article: 'Article',
-  whitepaper: 'White Paper',
 };
 
 export default function ContentCard({ item }: { item: ContentItem }) {

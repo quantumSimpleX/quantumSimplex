@@ -7,7 +7,7 @@ import { content, youtubeChannel } from '@/lib/data';
 import type { ContentItem, ContentType, Theme } from '@/lib/data';
 
 const typeLabels: Record<ContentItem['type'], string> = {
-  video: 'Video', podcast: 'Podcast', article: 'Article', whitepaper: 'White Paper',
+  video: 'Video', podcast: 'Podcast', article: 'Article',
 };
 
 const themeConfig = [
@@ -78,8 +78,8 @@ function InsightsContent() {
             </button>
           ))}
         </div>
-        <div className="qs-filter-bar" style={{ paddingTop: 12, paddingBottom: 0 }}>
-          {(['all', 'video', 'podcast', 'article', 'whitepaper'] as const).map((t) => (
+        <div className="qs-filter-bar" style={{ paddingTop: 12 }}>
+          {(['all', 'video', 'podcast', 'article'] as const).map((t) => (
             <button
               key={t}
               className={`qs-filter-btn qs-filter-btn-sm${typeFilter === t ? ' is-active' : ''}`}
@@ -105,7 +105,6 @@ function InsightsContent() {
                 <span className="qs-archive-lvl">{lvl}</span>
                 <h2 className={`qs-archive-name ${color}`}>{name.toUpperCase()}</h2>
                 <span className="qs-archive-tagline">{tagline}</span>
-                <span className="qs-archive-count">{items.length}</span>
               </div>
               <ul className="qs-archive-list">
                 {items.map((item) => (

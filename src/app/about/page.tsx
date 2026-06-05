@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { about, content, youtubeChannel } from '@/lib/data';
 
 const typeLabels: Record<string, string> = {
-  video: 'Video', podcast: 'Podcast', article: 'Article', whitepaper: 'White Paper',
+  video: 'Video', podcast: 'Podcast', article: 'Article',
 };
 
 const majorPress = new Set(['TechCrunch', 'ZDNet', 'CMSWire', 'The AI Journal', 'PhocusWire', 'Business Travel News', 'DevPro Journal', 'Information Age']);
@@ -10,7 +10,7 @@ const majorPress = new Set(['TechCrunch', 'ZDNet', 'CMSWire', 'The AI Journal', 
 export default function AboutPage() {
   const speaking = content.filter((c) => c.type === 'video');
   const writing = content.filter(
-    (c) => (c.type === 'article' && majorPress.has(c.source)) || c.type === 'whitepaper'
+    (c) => c.type === 'article' && majorPress.has(c.source)
   );
 
   return (

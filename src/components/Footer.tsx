@@ -53,7 +53,6 @@ export default function Footer() {
               <li><a href={youtubeChannel} target="_blank" rel="noopener noreferrer">YouTube channel</a></li>
               <li><Link href="/insights?type=article" onClick={scrollToFilters}>Articles</Link></li>
               <li><Link href="/insights?type=podcast" onClick={scrollToFilters}>Podcasts</Link></li>
-              <li><Link href="/insights?type=whitepaper" onClick={scrollToFilters}>White papers</Link></li>
             </ul>
           </div>
           <div className="qs-footer-col">

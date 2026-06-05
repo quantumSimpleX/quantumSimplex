@@ -9,6 +9,13 @@ const sequenceColors = [
   { name: 'n-white', tag: 't-white' },
 ];
 
+function latestUrlFor(pub: string): string {
+  const matches = content.filter((c) => c.source.includes(pub));
+  if (!matches.length) return '/insights';
+  const withYear = matches.filter((c) => c.year !== null).sort((a, b) => b.year! - a.year!);
+  return (withYear[0] ?? matches[0]).url;
+}
+
 function getFeatured(): ContentItem[] {
   const themes = ['inspire', 'mobilize', 'transform'] as const;
   return themes.map((theme) => {
@@ -83,7 +90,9 @@ export default function HomePage() {
           <span className="qs-pubs-label">As seen in</span>
           <ul className="qs-pubs-list">
             {publications.map((p) => (
-              <li key={p} className="qs-pubs-item">{p}</li>
+              <li key={p} className="qs-pubs-item">
+                <a href={latestUrlFor(p)} target="_blank" rel="noopener noreferrer">{p}</a>
+              </li>
             ))}
           </ul>
         </div>
