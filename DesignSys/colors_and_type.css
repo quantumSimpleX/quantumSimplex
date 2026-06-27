@@ -1,0 +1,291 @@
+/* =========================================================
+   Quantum Simplex — Colors & Type Tokens
+   "The simplest, but no simpler."
+   ========================================================= */
+
+/* -------- Brand typefaces --------
+   Display + accent display + mono are local brand files.
+   Body sans (Barlow Condensed) is loaded from Google Fonts
+   because the uploaded brand display faces are uppercase-only. */
+
+@font-face {
+  font-family: 'Bourbon Grotesque';
+  src: url('fonts/BourbonGrotesque-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MOMCAKE';
+  src: url('fonts/MOMCAKE/MOMCAKE-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MOMCAKE';
+  src: url('fonts/MOMCAKE/MOMCAKE-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face { font-family: 'Source Code Pro'; src: url('fonts/SourceCodePro-Regular.otf.woff2')  format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Source Code Pro'; src: url('fonts/SourceCodePro-Medium.otf.woff2')   format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Source Code Pro'; src: url('fonts/SourceCodePro-It.otf.woff2')       format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+
+/* Body sans — Barlow Condensed (free, Google Fonts).
+   Narrow grotesque — high density per line without feeling cramped. */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+:root {
+  /* -------- Brand core palette --------
+     Amethyst + Aquamarine, anchored by ink & paper.
+     Amethyst = intelligence/depth (primary), aquamarine = clarity/momentum (accent). */
+
+  --qs-aqua-50:  #E6FBF7;
+  --qs-aqua-100: #C2F4EA;
+  --qs-aqua-200: #8BE8D6;
+  --qs-aqua-300: #4FD8BE;
+  --qs-aqua-400: #1FC3A4;   /* Aquamarine — accent */
+  --qs-aqua-500: #0AA88B;
+  --qs-aqua-600: #008771;
+  --qs-aqua-700: #006A59;
+  --qs-aqua-800: #004D40;
+  --qs-aqua-900: #00322B;
+
+  --qs-amethyst-50:  #F2EEFE;
+  --qs-amethyst-100: #E2D8FC;
+  --qs-amethyst-200: #C5B0F8;
+  --qs-amethyst-300: #A788F2;
+  --qs-amethyst-400: #8A60EB;   /* Amethyst — primary brand */
+  --qs-amethyst-500: #7042D6;
+  --qs-amethyst-600: #582EB3;
+  --qs-amethyst-700: #41218A;
+  --qs-amethyst-800: #2D1763;
+  --qs-amethyst-900: #1B0E40;
+
+  /* Ink — near-black with a touch of cool */
+  --qs-ink-900: #0A0E14;   /* primary text on light */
+  --qs-ink-800: #161B23;
+  --qs-ink-700: #242B35;
+  --qs-ink-600: #3A434F;
+  --qs-ink-500: #5A6573;
+  --qs-ink-400: #7E8794;
+  --qs-ink-300: #A6ADB7;
+  --qs-ink-200: #CDD2D9;
+  --qs-ink-100: #E6E9ED;
+  --qs-ink-50:  #F4F5F7;
+
+  /* Paper — warm-cool neutral whites */
+  --qs-paper:        #FAFAF7;   /* default surface */
+  --qs-paper-warm:   #F5F2EA;   /* alt surface */
+  --qs-paper-pure:   #FFFFFF;
+
+  /* Semantic */
+  --qs-success: var(--qs-aqua-500);
+  --qs-info:    #2E7CF6;
+  --qs-warn:    #E6A800;
+  --qs-error:   #D43A2F;
+
+  /* -------- Foregrounds / backgrounds (semantic) -------- */
+  --fg-1: var(--qs-ink-900);   /* primary text */
+  --fg-2: var(--qs-ink-600);   /* secondary text */
+  --fg-3: var(--qs-ink-400);   /* tertiary / captions */
+  --fg-inverse: var(--qs-paper);
+
+  --bg-1: var(--qs-paper);     /* page */
+  --bg-2: var(--qs-paper-pure);/* cards */
+  --bg-3: var(--qs-ink-50);    /* subtle fills */
+  --bg-inverse: var(--qs-ink-900);
+
+  --accent: var(--qs-amethyst-400);
+  --accent-deep: var(--qs-amethyst-600);
+  --accent-2: var(--qs-aqua-400);
+  --accent-2-deep: var(--qs-aqua-600);
+
+  --line: var(--qs-ink-100);
+  --line-strong: var(--qs-ink-200);
+
+  /* -------- Type families --------
+     Roles derived from the wordmark:
+     - MOMCAKE renders "QUANTUM SIMPLE" → primary display.
+     - Bourbon Grotesque renders the "X" → accent letter, used sparingly.
+     - Source Code Pro renders "Perplexity in Plain Words" → mono voice
+       (reserved for actually-monospace material: code, IDs, addresses, citations).
+     - Barlow Condensed is the body sans for everything else. */
+  --font-display:     'MOMCAKE', 'Helvetica Neue', system-ui, sans-serif;
+  --font-display-alt: 'Bourbon Grotesque', 'MOMCAKE', 'Helvetica Neue', system-ui, sans-serif;
+  --font-sans:        'Barlow Condensed', 'Helvetica Neue', system-ui, sans-serif;
+  --font-mono:        'Source Code Pro', ui-monospace, monospace;
+
+  /* -------- Type scale (modular, 1.25) -------- */
+  --fs-xs:   12px;
+  --fs-sm:   14px;
+  --fs-base: 16px;
+  --fs-md:   18px;
+  --fs-lg:   22px;
+  --fs-xl:   28px;
+  --fs-2xl:  36px;
+  --fs-3xl:  48px;
+  --fs-4xl:  64px;
+  --fs-5xl:  88px;
+  --fs-6xl:  120px;
+
+  /* -------- Line heights -------- */
+  --lh-tight: 1.05;
+  --lh-snug:  1.15;
+  --lh-body:  1.5;
+  --lh-loose: 1.7;
+
+  /* -------- Tracking (letter-spacing) -------- */
+  --tr-tight: -0.025em;
+  --tr-snug:  -0.01em;
+  --tr-base:  0;
+  --tr-wide:  0.08em;     /* small caps / eyebrow labels */
+  --tr-wider: 0.18em;     /* the brand "Perplexity in Plain Words" feel */
+
+  /* -------- Spacing scale (4pt) -------- */
+  --sp-0: 0;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+
+  /* -------- Radii — generally tight; brand is geometric, not bubbly -------- */
+  --r-none: 0;
+  --r-xs:   2px;
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   14px;
+  --r-pill: 999px;
+
+  /* -------- Shadows — soft, not theatrical -------- */
+  --shadow-1: 0 1px 2px rgba(10,14,20,.06), 0 1px 1px rgba(10,14,20,.04);
+  --shadow-2: 0 4px 12px rgba(10,14,20,.08), 0 1px 2px rgba(10,14,20,.05);
+  --shadow-3: 0 16px 40px rgba(10,14,20,.10), 0 4px 8px rgba(10,14,20,.05);
+  --shadow-glow-aqua: 0 0 0 1px var(--qs-aqua-200), 0 8px 24px rgba(31,195,164,.22);
+  --shadow-glow-amethyst: 0 0 0 1px var(--qs-amethyst-200), 0 8px 24px rgba(138,96,235,.20);
+
+  /* -------- Motion -------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 420ms;
+}
+
+/* =========================================================
+   Semantic type styles
+   ========================================================= */
+
+.qs-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tr-wider);
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.qs-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(48px, 8vw, var(--fs-6xl));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+  color: var(--fg-1);
+}
+
+.qs-h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-4xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tight);
+  color: var(--fg-1);
+}
+
+.qs-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  color: var(--fg-1);
+}
+
+.qs-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-snug);
+  color: var(--fg-1);
+}
+
+.qs-h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-xl);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+
+.qs-lede {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  text-wrap: pretty;
+}
+
+.qs-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+  text-wrap: pretty;
+}
+
+.qs-small {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+}
+
+.qs-caption {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--fs-xs);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tr-snug);
+  color: var(--fg-3);
+}
+
+.qs-mono, code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  font-feature-settings: "ss01", "calt";
+}
+
+/* Pull-quote */
+.qs-quote {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-snug);
+  color: var(--fg-1);
+}

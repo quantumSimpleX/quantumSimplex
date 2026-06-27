@@ -5,7 +5,7 @@ import ContentCard from './ContentCard';
 import type { ContentItem } from '@/lib/data';
 
 const CARD_W = 320;
-const GAP = 18;
+const GAP = 34;
 const STEP = CARD_W + GAP;
 
 function shuffle<T>(arr: T[]): T[] {
