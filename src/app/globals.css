@@ -338,7 +338,7 @@ html, body {
 .qs-featured-inner { max-width: var(--site-max); margin: 0 auto; padding: 0 var(--site-pad); margin-bottom: 48px; }
 .qs-featured-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
 .qs-featured-h { font-family: var(--font-display); font-weight: 700; font-size: clamp(32px, 4vw, 52px); line-height: 1; letter-spacing: -0.025em; margin: 0; }
-.qs-featured-reel { overflow: hidden; }
+.qs-featured-reel { overflow: hidden; padding-block: 24px; margin-block: -24px; }
 .qs-featured-track { display: flex; gap: 34px; width: max-content; }
 .qs-reel-item { flex-shrink: 0; width: 320px; transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1); }
 .qs-reel-item--active { transform: scale(1.2); }
