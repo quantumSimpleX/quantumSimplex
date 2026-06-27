@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ContentCard from '@/components/ContentCard';
+import FeaturedReel from '@/components/FeaturedReel';
 import { services, content, about, booking, publications, youtubeChannel } from '@/lib/data';
 import type { ContentItem } from '@/lib/data';
 
@@ -16,12 +16,10 @@ function latestUrlFor(pub: string): string {
   return (withYear[0] ?? matches[0]).url;
 }
 
+const featuredIds = ['hWG3tqdAsLo', 'LyaJPa4-8QE', 'd9PzY7O4GNM', 'kjsDzf7kmPU', 'ZvZM6I-ngcQ', 'AcT8W6-j16Y'];
+
 function getFeatured(): ContentItem[] {
-  const themes = ['inspire', 'mobilize', 'transform'] as const;
-  return themes.map((theme) => {
-    const preferred = content.find((c) => c.theme === theme && (c.type === 'video' || c.type === 'podcast'));
-    return preferred ?? content.find((c) => c.theme === theme)!;
-  });
+  return featuredIds.map((id) => content.find((c) => c.url.includes(id))!);
 }
 
 export default function HomePage() {
@@ -118,15 +116,13 @@ export default function HomePage() {
 
       {/* FEATURED THOUGHT LEADERSHIP */}
       <section className="qs-featured">
-        <div className="qs-featured-head">
-          <h2 className="qs-featured-h">FEATURED THINKING</h2>
-          <Link href="/insights" className="qs-btn qs-btn-secondary">View all →</Link>
+        <div className="qs-featured-inner">
+          <div className="qs-featured-head">
+            <h2 className="qs-featured-h">FEATURED VIDEOS.</h2>
+            <Link href="/insights" className="qs-btn qs-btn-secondary">View all →</Link>
+          </div>
         </div>
-        <div className="qs-featured-grid">
-          {featured.map((item) => (
-            <ContentCard key={item.url} item={item} />
-          ))}
-        </div>
+        <FeaturedReel items={featured} />
       </section>
 
       {/* CTA BANNER */}
