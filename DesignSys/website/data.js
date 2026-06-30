@@ -28,7 +28,7 @@ const QSData = {
       level: 1,
       name: 'Inspire',
       tagline: 'Change Mindset',
-      thread: `You can't mobilize what you haven't inspired.`,
+      thread: `You can't mobilize a team that isn't inspired.`,
       accent: 'aqua',
       offerings: [
         {
@@ -47,7 +47,7 @@ const QSData = {
       level: 2,
       name: 'Mobilize',
       tagline: 'Change Behaviors',
-      thread: `You can't transform what you haven't mobilized.`,
+      thread: `You can't transform a workforce that isn't mobilized.`,
       accent: 'amethyst',
       offerings: [
         {
@@ -66,7 +66,7 @@ const QSData = {
       level: 3,
       name: 'Transform',
       tagline: 'Change Operations',
-      thread: `You can't futureproof what you haven't transformed.`,
+      thread: `You can't futureproof a company that isn't transformed`,
       accent: 'ink',
       offerings: [
         {
