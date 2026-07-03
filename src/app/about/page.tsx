@@ -94,33 +94,37 @@ export default function AboutPage() {
           <div className="qs-abt-section-head">
             <h2 className="qs-abt-section-h">WHY QUANTUM SIMPLEX</h2>
           </div>
-          <div className="qs-why-inner">
-            <div className="qs-why-image" data-reveal="">
-              Image placeholder
-            </div>
-            <div className="qs-why-levels">
-              <div className="qs-why-level" data-reveal="" data-delay="1">
-                <span className="qs-why-level-h">Level 1</span>
+          <div className="qs-why-levels">
+            <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="1">
+              <span className="qs-why-level-h">Level 01</span>
+              <div className="qs-why-level-body">
+                <img src="/images/Why-QS1.jpg" alt="Abstract visualization of quantum wave-particle duality" className="qs-why-level-img" />
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum Physics:</strong> one of the most perplexing and counterintuitive scientific disciplines.</li>
                   <li><strong>The Simplex:</strong> the simplest possible polytope in any given dimension.</li>
                   <li><strong>Quantum Simplex:</strong> where we distill the most perplexing scientific topics into their simplest essence for business leaders.</li>
                 </ul>
               </div>
-              <div className="qs-why-level" data-reveal="" data-delay="2">
-                <span className="qs-why-level-h">Level 2</span>
+            </div>
+            <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="2">
+              <span className="qs-why-level-h">Level 02</span>
+              <div className="qs-why-level-body">
+                <img src="/images/Why-QS2.jpg" alt="Simplexes of increasing dimension, from a point to a tetrahedron" className="qs-why-level-img" />
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum:</strong> a world that seems to defy reality with entanglement, superposition, and wave-particle duality.</li>
                   <li><strong>Simplex:</strong> a linear programming algorithm that optimizes the objective function under constraints.</li>
                   <li><strong>Quantum Simplex:</strong> where we help companies optimize their AI to achieve unrealistic 10x expectations under real-world constraints.</li>
                 </ul>
               </div>
-              <div className="qs-why-level" data-reveal="" data-delay="3">
-                <span className="qs-why-level-h">Level 3</span>
+            </div>
+            <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="3">
+              <span className="qs-why-level-h">Level 3</span>
+              <div className="qs-why-level-body">
+                <img src="/images/Why-QS3.png" alt="Diagram of a probability simplex with coordinates summing to one" className="qs-why-level-img" />
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum Computing:</strong> a qubit (quantum bit) exists in superposition until measurement collapses it into one definite, observable state.</li>
-                  <li><strong>A Probability k-Simplex:</strong> a (k−1)-dimensional subspace with positive coordinates summing to 1, representing all discrete probability distributions.</li>
-                  <li><strong>Quantum Simplex:</strong> where we help enterprises collapse AI&apos;s infinite possibilities into the one with the highest probability of success and observable ROI.</li>
+                  <li><strong>A Probability k-Simplex:</strong> a (k−1)-dimensional subspace with positive coordinates summing to 1, representing all possible discrete probability distributions.</li>
+                  <li><strong>Quantum Simplex:</strong> where we help enterprises collapse AI&apos;s infinite possibilities into the single strategy with the highest probability of success and an observable ROI.</li>
                 </ul>
               </div>
             </div>
