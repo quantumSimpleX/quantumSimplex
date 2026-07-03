@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quantum Simplex
+
+Production website for **Quantum Simplex** — Dr. Michael Wu's AI Transformation Advisory. Built with Next.js (App Router) and TypeScript.
+
+The site presents three sequential AI transformation service levels (Inspire → Mobilize → Transform), Dr. Wu's speaking/writing archive, thought leadership content, and a booking flow backed by Google Calendar.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Set `NEXT_PUBLIC_BOOKING_URL` in `.env.local` to the Google Calendar booking link used on `/engage`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Commands
 
-## Learn More
+```bash
+npm run dev          # start dev server (localhost:3000)
+npm run build        # production build
+npm run start        # serve production build
+npm run test         # unit/component tests (vitest run)
+npm run test:watch   # vitest watch mode
+npm run test:e2e     # playwright e2e (auto-starts dev server)
+npm run test:all     # vitest + playwright
+```
 
-To learn more about Next.js, take a look at the following resources:
+Single test file: `npx vitest run src/__tests__/pages/HomePage.test.tsx`
+Single e2e file: `npx playwright test e2e/home.spec.ts`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Routes** (`src/app/*/page.tsx`) — `/` (home), `/about`, `/services`, `/insights`, `/engage`. Routes are thin and render content sourced from `src/lib/data.ts` (typed exports: `nav`, `about`, `services`, `content`, `publications`, `booking`, etc.).
+- **Layout** (`src/app/layout.tsx`) wraps every page in `next-themes` `ThemeProvider` (`data-theme` attribute, system default) plus shared `Nav`, `Footer`, and `RevealProvider` — a client component running a single `IntersectionObserver`/`MutationObserver` pair that adds `data-visible` to any `[data-reveal]` element as it scrolls into view.
+- **Components** (`src/components/`): `Nav`, `Footer`, `FeaturedReel`, `ContentCard`.
+- **Styling**: CSS custom properties (`qs-*` tokens) in `src/app/globals.css`. No Tailwind. Dark mode via `[data-theme="dark"]` on `<html>`.
+- **Tests** (`src/__tests__/`) mirror `src/` structure (`components/`, `pages/`, `lib/`) and run under Vitest + jsdom + React Testing Library. Playwright e2e specs live in `e2e/` and run against a real dev server.
 
-## Deploy on Vercel
+See `CLAUDE.md` for detailed guidance on working in this codebase, and `DesignSys/` for the original design handoff reference (JSX prototypes, copy source, brand assets).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+147 tests across unit/component (Vitest) and e2e (Playwright) suites. See `test.md` for full coverage breakdown.
