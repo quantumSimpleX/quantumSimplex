@@ -288,8 +288,8 @@ html, body {
 /* =========================================================
    SEQUENCE STRIP
    ========================================================= */
-.qs-sequence { background: var(--qs-ink-900); color: white; padding: 0 var(--site-pad); border-top: 1px solid rgba(255,255,255,.07); }
-.qs-sequence-inner { max-width: var(--site-max); margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); border-left: 1px solid rgba(255,255,255,.1); }
+.qs-sequence { background: var(--qs-ink-900); color: white; border-top: 1px solid rgba(255,255,255,.07); }
+.qs-sequence-inner { display: grid; grid-template-columns: repeat(3,1fr); border-left: 1px solid rgba(255,255,255,.1); }
 .qs-sequence-item { padding: 48px 40px 48px 32px; border-right: 1px solid rgba(255,255,255,.1); position: relative; cursor: default; text-decoration: none; display: block; }
 .qs-sequence-item::after { content: ''; position: absolute; bottom: 0; left: 32px; right: 40px; height: 2px; background: transparent; transition: background var(--dur-slow) var(--ease-out); }
 .qs-sequence-item:hover::after { background: var(--qs-amethyst-400); }
@@ -303,7 +303,7 @@ html, body {
 .qs-sequence-tag.t-amethyst { color: var(--qs-amethyst-400); }
 .qs-sequence-tag.t-white    { color: rgba(255,255,255,.4); }
 .qs-sequence-thread { font-family: var(--font-sans); font-size: 15px; color: rgba(255,255,255,.4); line-height: 1.55; font-style: italic; }
-@media (max-width: 768px) { .qs-sequence-inner { grid-template-columns: 1fr; border-left: 0; } .qs-sequence-item { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding: 32px 0; } .qs-sequence-item:last-child { border-bottom: 0; } }
+@media (max-width: 768px) { .qs-sequence-inner { grid-template-columns: 1fr; border-left: 0; } .qs-sequence-item { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding: 32px var(--site-pad); } .qs-sequence-item:last-child { border-bottom: 0; } }
 
 .qs-sequence-item.qs-bg-inspire   { background: linear-gradient(rgba(10,14,20,.82), rgba(10,14,20,.82)), url('/images/ai-inspire-team.jpg') center/cover no-repeat; }
 .qs-sequence-item.qs-bg-mobilize  { background: linear-gradient(rgba(10,14,20,.82), rgba(10,14,20,.82)), url('/images/ai-mobilized-workforce.jpg') center/cover no-repeat; }
@@ -548,7 +548,7 @@ html, body {
    DARK MODE
    ========================================================= */
 [data-theme="dark"] {
-  --fg-1: #F4F5F7; --fg-2: #A6ADB7; --fg-3: #5A6573;
+  --fg-1: #F4F5F7; --fg-2: #A6ADB7; --fg-3: #8892A0;
   --bg-1: #161B23; --bg-2: #242B35; --bg-3: #2E3742;
   --line: #2E3742; --line-strong: #3A434F;
   --qs-paper-warm: #1A2028;
