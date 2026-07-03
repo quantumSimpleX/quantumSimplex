@@ -113,7 +113,7 @@ export default function AboutPage() {
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum:</strong> a world that seems to defy reality with entanglement, superposition, and wave-particle duality.</li>
                   <li><strong>Simplex:</strong> a linear programming algorithm that optimizes the objective function under constraints.</li>
-                  <li><strong>Quantum Simplex:</strong> where we help companies optimize their AI to achieve unrealistic 10x expectations under real-world constraints.</li>
+                  <li><strong>Quantum Simplex:</strong> where we help companies optimize their AI to achieve the unrealistic 10x expectations under real-world constraints.</li>
                 </ul>
               </div>
             </div>
