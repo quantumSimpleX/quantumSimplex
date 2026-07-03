@@ -526,10 +526,18 @@ html, body {
 .qs-abt-bio-p:last-child { margin-bottom: 0; }
 .qs-abt-section { padding: 80px var(--site-pad); }
 .qs-abt-section--warm { background: var(--qs-paper-warm); }
+.qs-abt-section--alt { background: var(--bg-3); }
 .qs-abt-section-inner { max-width: var(--site-max); margin: 0 auto; }
 .qs-abt-section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; padding-bottom: 16px; border-bottom: 2px solid var(--qs-ink-900); }
 .qs-abt-section-h { font-family: var(--font-display); font-weight: 700; font-size: clamp(28px, 3.5vw, 44px); line-height: 1; letter-spacing: -0.025em; margin: 0; }
-@media (max-width: 900px) { .qs-abt-profile-inner { grid-template-columns: 1fr; gap: 40px; } .qs-abt-portrait-col { position: static; max-width: 280px; } }
+.qs-why-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.qs-why-image { aspect-ratio: 4 / 3; border-radius: var(--r-sm); background: var(--bg-3); border: 1px dashed var(--line-strong); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-3); position: sticky; top: 24px; }
+.qs-why-levels { display: flex; flex-direction: column; gap: 32px; }
+.qs-why-level-h { font-family: var(--font-mono); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 12px; }
+.qs-why-level-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.qs-why-level-list li { font-family: var(--font-sans); font-size: var(--site-body); line-height: 1.65; color: var(--fg-2); text-wrap: pretty; }
+.qs-why-level-list li strong { color: var(--fg-1); font-weight: 600; }
+@media (max-width: 900px) { .qs-abt-profile-inner { grid-template-columns: 1fr; gap: 40px; } .qs-abt-portrait-col { position: static; max-width: 280px; } .qs-why-inner { grid-template-columns: 1fr; gap: 32px; } .qs-why-image { position: static; } }
 
 /* =========================================================
    FOOTER
@@ -584,6 +592,7 @@ html, body {
 [data-theme="dark"] .qs-sequence-name.n-white { color: var(--fg-1); }
 [data-theme="dark"] .qs-abt-section-h         { color: var(--fg-1); }
 [data-theme="dark"] .qs-abt-section-head { border-bottom-color: var(--line-strong); }
+[data-theme="dark"] .qs-abt-section--alt { background: #1F252E; }
 [data-theme="dark"] .qs-archive-section-head { border-bottom-color: var(--line-strong); }
 [data-theme="dark"] .qs-level-thread { border-left-color: var(--qs-amethyst-400); }
 

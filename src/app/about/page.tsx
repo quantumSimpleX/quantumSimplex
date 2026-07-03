@@ -5,13 +5,8 @@ const typeLabels: Record<string, string> = {
   video: 'Video', podcast: 'Podcast', article: 'Article',
 };
 
-const majorPress = new Set(['TechCrunch', 'ZDNet', 'CMSWire', 'The AI Journal', 'PhocusWire', 'Business Travel News', 'DevPro Journal', 'Information Age']);
-
 export default function AboutPage() {
   const speaking = content.filter((c) => c.type === 'video');
-  const writing = content.filter(
-    (c) => c.type === 'article' && majorPress.has(c.source)
-  );
 
   return (
     <>
@@ -93,6 +88,46 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* WHY QUANTUM SIMPLEX */}
+      <section className="qs-abt-section qs-abt-section--alt">
+        <div className="qs-abt-section-inner">
+          <div className="qs-abt-section-head">
+            <h2 className="qs-abt-section-h">WHY QUANTUM SIMPLEX</h2>
+          </div>
+          <div className="qs-why-inner">
+            <div className="qs-why-image" data-reveal="">
+              Image placeholder
+            </div>
+            <div className="qs-why-levels">
+              <div className="qs-why-level" data-reveal="" data-delay="1">
+                <span className="qs-why-level-h">Level 1</span>
+                <ul className="qs-why-level-list">
+                  <li><strong>Quantum Physics:</strong> one of the most perplexing and counterintuitive scientific disciplines.</li>
+                  <li><strong>The Simplex:</strong> the simplest possible polytope in any given dimension.</li>
+                  <li><strong>Quantum Simplex:</strong> where we distill the most perplexing scientific topics into their simplest essence for business leaders.</li>
+                </ul>
+              </div>
+              <div className="qs-why-level" data-reveal="" data-delay="2">
+                <span className="qs-why-level-h">Level 2</span>
+                <ul className="qs-why-level-list">
+                  <li><strong>Quantum:</strong> a world that seems to defy reality with entanglement, superposition, and wave-particle duality.</li>
+                  <li><strong>Simplex:</strong> a linear programming algorithm that optimizes the objective function under constraints.</li>
+                  <li><strong>Quantum Simplex:</strong> where we help companies optimize their AI to achieve unrealistic 10x expectations under real-world constraints.</li>
+                </ul>
+              </div>
+              <div className="qs-why-level" data-reveal="" data-delay="3">
+                <span className="qs-why-level-h">Level 3</span>
+                <ul className="qs-why-level-list">
+                  <li><strong>Quantum Computing:</strong> a qubit (quantum bit) exists in superposition until measurement collapses it into one definite, observable state.</li>
+                  <li><strong>A Probability k-Simplex:</strong> a (k−1)-dimensional subspace with positive coordinates summing to 1, representing all discrete probability distributions.</li>
+                  <li><strong>Quantum Simplex:</strong> where we help enterprises collapse AI&apos;s infinite possibilities into the one with the highest probability of success and observable ROI.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SPEAKING ARCHIVE */}
       <section className="qs-abt-section">
         <div className="qs-abt-section-inner">
@@ -120,31 +155,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* WRITING ARCHIVE */}
-      <section className="qs-abt-section qs-abt-section--warm">
-        <div className="qs-abt-section-inner">
-          <div className="qs-abt-section-head">
-            <h2 className="qs-abt-section-h">WRITING</h2>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--fg-3)' }}>{writing.length} pieces</span>
-          </div>
-          <ul className="qs-archive-list">
-            {writing.map((item) => (
-              <li key={item.url} className="qs-archive-row">
-                <a href={item.url} target="_blank" rel="noopener noreferrer" className="qs-archive-link">
-                  <span className={`qs-archive-type-mark type-${item.type}`} />
-                  <span className={`qs-archive-type-label ${item.type}`}>{typeLabels[item.type]}</span>
-                  <span className="qs-archive-title">{item.title}</span>
-                  <span className="qs-archive-source">{item.source}</span>
-                  {item.year && <span className="qs-archive-year">{item.year}</span>}
-                  <span className="qs-archive-arrow">→</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* CTA BANNER */}
+{/* CTA BANNER */}
       <section className="qs-cta-banner">
         <div className="qs-cta-inner">
           <div>
