@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { services, booking } from '@/lib/data';
 
 const levelColors = ['c-aqua', 'c-amethyst', 'c-ink'];
+const levelBgs = ['qs-bg-inspire', 'qs-bg-mobilize', 'qs-bg-transform'];
 
 export default function ServicesPage() {
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function ServicesPage() {
 
       {/* SERVICE LEVELS */}
       {services.map((s, i) => (
-        <section key={s.level} id={`level-${s.level}`} className="qs-level">
+        <section key={s.level} id={`level-${s.level}`} className={`qs-level ${levelBgs[i]}`}>
           <div className="qs-level-inner">
             <div className="qs-level-header">
               <div className="qs-level-badge" data-reveal="">

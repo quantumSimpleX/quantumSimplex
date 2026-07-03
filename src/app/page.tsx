@@ -4,9 +4,9 @@ import { services, content, about, booking, publications, youtubeChannel } from 
 import type { ContentItem } from '@/lib/data';
 
 const sequenceColors = [
-  { name: 'n-aqua', tag: 't-aqua' },
-  { name: 'n-amethyst', tag: 't-amethyst' },
-  { name: 'n-white', tag: 't-white' },
+  { name: 'n-aqua', tag: 't-aqua', bg: 'qs-bg-inspire' },
+  { name: 'n-amethyst', tag: 't-amethyst', bg: 'qs-bg-mobilize' },
+  { name: 'n-white', tag: 't-white', bg: 'qs-bg-transform' },
 ];
 
 function latestUrlFor(pub: string): string {
@@ -32,7 +32,7 @@ export default function HomePage() {
         <img src="/assets/icon-black.svg" alt="" className="qs-hero-watermark" aria-hidden />
         <div className="qs-hero-inner">
           <div className="qs-hero-content">
-            <span className="qs-hero-label">AI Transformation Advisory</span>
+            <span className="qs-hero-label">AI Native Transformation Advisory</span>
             <h1 className="qs-hero-h">INSPIRE.<br />MOBILIZE.<br />TRANSFORM.</h1>
             <p className="qs-hero-hook">
               Most organizations don't have an AI problem. They have a clarity problem.
@@ -69,7 +69,7 @@ export default function HomePage() {
             <Link
               key={s.level}
               href={`/services#level-${s.level}`}
-              className="qs-sequence-item"
+              className={`qs-sequence-item ${sequenceColors[i].bg}`}
               data-reveal=""
               data-delay={String(i + 1)}
             >
