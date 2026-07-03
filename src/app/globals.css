@@ -415,25 +415,20 @@ html, body {
 .qs-offering-engagement { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--fg-3); white-space: nowrap; padding-top: 4px; text-align: right; }
 .qs-offering-desc { font-family: var(--font-sans); font-size: 16px; line-height: 1.7; color: var(--fg-2); text-wrap: pretty; margin: 0; }
 
-.qs-level.qs-bg-inspire   { background: linear-gradient(rgba(10,14,20,.78), rgba(10,14,20,.78)), url('/images/ai-inspire-team.jpg') center/cover no-repeat; }
-.qs-level.qs-bg-mobilize  { background: linear-gradient(rgba(10,14,20,.78), rgba(10,14,20,.78)), url('/images/ai-mobilized-workforce.jpg') center/cover no-repeat; }
-.qs-level.qs-bg-transform { background: linear-gradient(rgba(10,14,20,.78), rgba(10,14,20,.78)), url('/images/ai-transformed-company.jpg') center/cover no-repeat; }
+.qs-level.qs-bg-inspire, .qs-level.qs-bg-mobilize, .qs-level.qs-bg-transform {
+  background-color: rgb(10,14,20);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top center, top center;
+  background-size: 100vw 57.14vw, 100vw 57.14vw;
+}
+.qs-level.qs-bg-inspire   { background-image: linear-gradient(to bottom, rgba(10,14,20,0) 0%, rgba(10,14,20,1) 100%), url('/images/ai-inspire-team.jpg'); }
+.qs-level.qs-bg-mobilize  { background-image: linear-gradient(to bottom, rgba(10,14,20,0) 0%, rgba(10,14,20,1) 100%), url('/images/ai-mobilized-workforce.jpg'); }
+.qs-level.qs-bg-transform { background-image: linear-gradient(to bottom, rgba(10,14,20,0) 0%, rgba(10,14,20,1) 100%), url('/images/ai-transformed-company.jpg'); }
 .qs-level[class*="qs-bg-"] .qs-level-num,
 .qs-level[class*="qs-bg-"] .qs-level-tagline { color: rgba(255,255,255,.55); }
 .qs-level[class*="qs-bg-"] .qs-level-name.c-ink { color: white; }
 .qs-level[class*="qs-bg-"] .qs-level-thread { color: rgba(255,255,255,.85); border-left-color: rgba(255,255,255,.5); }
 @media (max-width: 900px) { .qs-level-header { grid-template-columns: 1fr; gap: 28px; } .qs-offerings { grid-template-columns: 1fr; } }
-@media (max-width: 768px) {
-  .qs-level.qs-bg-inspire, .qs-level.qs-bg-mobilize, .qs-level.qs-bg-transform {
-    background-color: rgb(10,14,20);
-    background-repeat: no-repeat, no-repeat;
-    background-position: top center, top center;
-    background-size: 100vw 57.14vw, 100vw 57.14vw;
-  }
-  .qs-level.qs-bg-inspire   { background-image: linear-gradient(to bottom, rgba(10,14,20,0) 0%, rgba(10,14,20,1) 100%), url('/images/ai-inspire-team.jpg'); }
-  .qs-level.qs-bg-mobilize  { background-image: linear-gradient(to bottom, rgba(10,14,20,0) 0%, rgba(10,14,20,1) 100%), url('/images/ai-mobilized-workforce.jpg'); }
-  .qs-level.qs-bg-transform { background-image: linear-gradient(to bottom, rgba(10,14,20,0) 0%, rgba(10,14,20,1) 100%), url('/images/ai-transformed-company.jpg'); }
-}
 
 /* =========================================================
    THOUGHT LEADERSHIP / ARCHIVE
