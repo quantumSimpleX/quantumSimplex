@@ -94,9 +94,10 @@ export default function AboutPage() {
           <div className="qs-abt-section-head">
             <h2 className="qs-abt-section-h">WHY QUANTUM SIMPLEX</h2>
           </div>
+          <p className="qs-why-intro">3 levels of service, 3 levels of explanation.</p>
           <div className="qs-why-levels">
             <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="1">
-              <span className="qs-why-level-h">Level 01</span>
+              <span className="qs-why-level-h c-aqua">Level 01</span>
               <div className="qs-why-level-body">
                 <img src="/images/Why-QS1.jpg" alt="Abstract visualization of quantum wave-particle duality" className="qs-why-level-img" />
                 <ul className="qs-why-level-list">
@@ -107,7 +108,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="2">
-              <span className="qs-why-level-h">Level 02</span>
+              <span className="qs-why-level-h c-amethyst">Level 02</span>
               <div className="qs-why-level-body">
                 <img src="/images/Why-QS2.jpg" alt="Simplexes of increasing dimension, from a point to a tetrahedron" className="qs-why-level-img" />
                 <ul className="qs-why-level-list">
@@ -118,7 +119,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="3">
-              <span className="qs-why-level-h">Level 3</span>
+              <span className="qs-why-level-h c-ink">Level 3</span>
               <div className="qs-why-level-body">
                 <img src="/images/Why-QS3.png" alt="Diagram of a probability simplex with coordinates summing to one" className="qs-why-level-img" />
                 <ul className="qs-why-level-list">
