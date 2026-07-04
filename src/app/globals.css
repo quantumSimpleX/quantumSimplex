@@ -427,6 +427,7 @@ html, body {
 .qs-level[class*="qs-bg-"] .qs-level-num,
 .qs-level[class*="qs-bg-"] .qs-level-tagline { color: rgba(255,255,255,.55); }
 .qs-level[class*="qs-bg-"] .qs-level-name.c-ink { color: white; }
+.qs-level[class*="qs-bg-"] .qs-level-name.c-amethyst { color: var(--qs-amethyst-300); }
 .qs-level[class*="qs-bg-"] .qs-level-thread { color: rgba(255,255,255,.85); border-left-color: rgba(255,255,255,.5); }
 @media (max-width: 900px) { .qs-level-header { grid-template-columns: 1fr; gap: 28px; } .qs-offerings { grid-template-columns: 1fr; } }
 
