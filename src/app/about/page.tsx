@@ -117,7 +117,7 @@ export default function AboutPage() {
                 </Link>
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum Mechanics:</strong> the subatomic reality of a seemingly impossible world that operates under strange principles of entanglement and wave-particle duality.</li>
-                  <li><strong>The Simplex Algorithm:</strong> A linear programming method that optimizes an objective under constraints.</li>
+                  <li><strong>The Simplex Algorithm:</strong> A popularlinear programming algorithm that optimizes objectives under constraints.</li>
                   <li><strong>Quantum Simplex:</strong> where we help companies optimize their AI to achieve the seemingly impossible +10x productivity under real-world constraints.</li>
                 </ul>
               </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
                   <img src="/images/Why-QS3.jpg" alt="Diagram of a probability simplex with coordinates summing to one" className="qs-why-level-img" />
                 </Link>
                 <ul className="qs-why-level-list">
-                  <li><strong>Quantum Computing:</strong> a qubit (quantum bit) exists in superposition until measurement collapses it into one observable state.</li>
+                  <li><strong>In Quantum Computing:</strong> a qubit (quantum bit) exists in superposition until measurement collapses it into one observable state.</li>
                   <li><strong>A k-Simplex:</strong> a (k−1)-dimensional subspace with positive coordinates summing to 1, representing all possible discrete probability distributions.</li>
                   <li><strong>Quantum Simplex:</strong> where we help enterprises collapse the infinite possibilities of AI into a single actionable strategy with observable ROI.</li>
                 </ul>
