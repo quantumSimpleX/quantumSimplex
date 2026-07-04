@@ -99,7 +99,9 @@ export default function AboutPage() {
             <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="1">
               <span className="qs-why-level-h c-aqua">Level 01</span>
               <div className="qs-why-level-body">
-                <img src="/images/Why-QS1.jpg" alt="Abstract visualization of quantum wave-particle duality" className="qs-why-level-img" />
+                <Link href="/services#level-1">
+                  <img src="/images/Why-QS1.jpg" alt="Abstract visualization of quantum wave-particle duality" className="qs-why-level-img" />
+                </Link>
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum Physics:</strong> one of the most perplexing and counterintuitive scientific disciplines.</li>
                   <li><strong>The Simplex:</strong> the simplest possible polytope in any given dimension.</li>
@@ -110,7 +112,9 @@ export default function AboutPage() {
             <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="2">
               <span className="qs-why-level-h c-amethyst">Level 02</span>
               <div className="qs-why-level-body">
-                <img src="/images/Why-QS2.jpg" alt="Simplexes of increasing dimension, from a point to a tetrahedron" className="qs-why-level-img" />
+                <Link href="/services#level-2">
+                  <img src="/images/Why-QS2.jpg" alt="Simplexes of increasing dimension, from a point to a tetrahedron" className="qs-why-level-img" />
+                </Link>
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum Mechanics:</strong> the subatomic reality of a seemingly impossible world that operates under strange principles of entanglement and wave-particle duality.</li>
                   <li><strong>The Simplex Algorithm:</strong> A linear programming method that optimizes an objective under constraints.</li>
@@ -121,7 +125,9 @@ export default function AboutPage() {
             <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="3">
               <span className="qs-why-level-h c-ink">Level 3</span>
               <div className="qs-why-level-body">
-                <img src="/images/Why-QS3.jpg" alt="Diagram of a probability simplex with coordinates summing to one" className="qs-why-level-img" />
+                <Link href="/services#level-3">
+                  <img src="/images/Why-QS3.jpg" alt="Diagram of a probability simplex with coordinates summing to one" className="qs-why-level-img" />
+                </Link>
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum Computing:</strong> a qubit (quantum bit) exists in superposition until measurement collapses it into one observable state.</li>
                   <li><strong>A k-Simplex:</strong> a (k−1)-dimensional subspace with positive coordinates summing to 1, representing all possible discrete probability distributions.</li>

@@ -538,7 +538,8 @@ html, body {
 .qs-why-level-h.c-amethyst { color: var(--qs-amethyst-500); }
 .qs-why-level-h.c-ink      { color: var(--qs-ink-900); }
 .qs-why-level-body { display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: start; }
-.qs-why-level-img { width: 100%; height: auto; border-radius: var(--r-sm); }
+.qs-why-level-img { width: 100%; height: auto; border-radius: var(--r-sm); display: block; transition: opacity var(--dur-fast) var(--ease-out); }
+.qs-why-level-img:hover { opacity: 0.85; }
 .qs-why-level-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .qs-why-level-list li { font-family: var(--font-sans); font-size: var(--site-body); line-height: 1.65; color: var(--fg-2); text-wrap: pretty; }
 .qs-why-level-list li strong { color: var(--fg-1); font-weight: 600; }
