@@ -594,6 +594,7 @@ html, body {
 [data-theme="dark"] .qs-archive-link:hover { background: var(--bg-3); }
 [data-theme="dark"] .qs-level-name.c-ink     { color: var(--fg-1); }
 [data-theme="dark"] .qs-why-level-h.c-ink    { color: var(--fg-1); }
+[data-theme="dark"] .qs-why-level-h.c-amethyst { color: var(--qs-amethyst-300); }
 [data-theme="dark"] .qs-archive-name.c-ink   { color: var(--fg-1); }
 [data-theme="dark"] .qs-sequence-name.n-white { color: var(--fg-1); }
 [data-theme="dark"] .qs-abt-section-h         { color: var(--fg-1); }
