@@ -27,7 +27,7 @@ export default function AboutPage() {
           <div className="qs-abt-portrait-col">
             <div className="qs-abt-portrait">
               <img
-                src="/portrait.jpg"
+                src="/images/portrait.jpg"
                 alt={about.name}
                 style={{
                   position: 'absolute', inset: 0,
