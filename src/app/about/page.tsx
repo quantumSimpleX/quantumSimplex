@@ -130,7 +130,7 @@ export default function AboutPage() {
                 </Link>
                 <ul className="qs-why-level-list">
                   <li><strong>Quantum Computing:</strong> use qubits (quantum bits) exist in superposition until measurement collapses them into one observable state.</li>
-                  <li><strong>A k-Simplex:</strong> a subspace with positive coordinates summing to 1, representing all possible discrete probability distributions in k−dimensions.</li>
+                  <li><strong>A k-Simplex:</strong> a subspace with positive coordinates summing to 1, representing the infinite possibilities of all discrete probability distributions in (k+1)−dimensions.</li>
                   <li><strong>Quantum Simplex:</strong> where we help enterprises collapse the infinite possibilities of AI into a single actionable strategy with observable ROI.</li>
                 </ul>
               </div>
