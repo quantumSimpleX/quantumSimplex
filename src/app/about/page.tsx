@@ -116,21 +116,21 @@ export default function AboutPage() {
                   <img src="/images/Why-QS2.jpg" alt="Simplexes of increasing dimension, from a point to a tetrahedron" className="qs-why-level-img" />
                 </Link>
                 <ul className="qs-why-level-list">
-                  <li><strong>Quantum Mechanics:</strong> the subatomic reality of a seemingly impossible world that operates under strange principles of entanglement and wave-particle duality.</li>
-                  <li><strong>The Simplex Algorithm:</strong> A popularlinear programming algorithm that optimizes objectives under constraints.</li>
-                  <li><strong>Quantum Simplex:</strong> where we help companies optimize their AI to achieve the seemingly impossible +10x productivity under real-world constraints.</li>
+                  <li><strong>Quantum Mechanics:</strong> the subatomic reality of a seemingly impossible world that operates under principles of entanglement, wave-particle duality, etc., that defies common sense.</li>
+                  <li><strong>The Simplex Algorithm:</strong> a popular linear programming algorithm that optimizes objectives under any number of linear constraints.</li>
+                  <li><strong>Quantum Simplex:</strong> where we help companies optimize their AI to achieve the seemingly impossible 10x productivity under real business constraints.</li>
                 </ul>
               </div>
             </div>
             <div className="qs-why-level qs-why-level--image" data-reveal="" data-delay="3">
-              <span className="qs-why-level-h c-ink">Level 3</span>
+              <span className="qs-why-level-h c-ink">Level 03</span>
               <div className="qs-why-level-body">
                 <Link href="/services#level-3">
                   <img src="/images/Why-QS3.jpg" alt="Diagram of a probability simplex with coordinates summing to one" className="qs-why-level-img" />
                 </Link>
                 <ul className="qs-why-level-list">
-                  <li><strong>In Quantum Computing:</strong> a qubit (quantum bit) exists in superposition until measurement collapses it into one observable state.</li>
-                  <li><strong>A k-Simplex:</strong> a (k−1)-dimensional subspace with positive coordinates summing to 1, representing all possible discrete probability distributions.</li>
+                  <li><strong>Quantum Computing:</strong> use qubits (quantum bits) exist in superposition until measurement collapses them into one observable state.</li>
+                  <li><strong>A k-Simplex:</strong> a subspace with positive coordinates summing to 1, representing all possible discrete probability distributions in k−dimensions.</li>
                   <li><strong>Quantum Simplex:</strong> where we help enterprises collapse the infinite possibilities of AI into a single actionable strategy with observable ROI.</li>
                 </ul>
               </div>
