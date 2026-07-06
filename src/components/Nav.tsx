@@ -114,13 +114,15 @@ export default function Nav() {
             className="qs-menu-toggle"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Menu"
+            aria-expanded={menuOpen}
+            aria-controls="qs-mobile-nav"
           >
             <span /><span /><span />
           </button>
         </div>
       </header>
 
-      <nav className={`qs-mobile-nav${menuOpen ? ' is-open' : ''}`}>
+      <nav id="qs-mobile-nav" className={`qs-mobile-nav${menuOpen ? ' is-open' : ''}`} aria-label="Mobile">
         {nav.map((item) => (
           <Link
             key={item.id}

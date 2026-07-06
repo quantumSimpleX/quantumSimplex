@@ -24,6 +24,7 @@ export default function FeaturedReel({ items }: { items: ContentItem[] }) {
   const [idx, setIdx] = useState(n);
   const [snapping, setSnapping] = useState(false);
   const [containerW, setContainerW] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
   const reelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,15 +39,24 @@ export default function FeaturedReel({ items }: { items: ContentItem[] }) {
     return () => ro.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReduceMotion(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
   // Wait 2s, snap forward one card
   useEffect(() => {
-    if (snapping) return;
+    if (snapping || reduceMotion) return;
     const t = setTimeout(() => {
       setSnapping(true);
       setIdx(i => i + 1);
     }, 2000);
     return () => clearTimeout(t);
-  }, [idx, snapping]);
+  }, [idx, snapping, reduceMotion]);
 
   // After 200ms snap, end transition; when we reach the third set, silently reset to middle set
   useEffect(() => {

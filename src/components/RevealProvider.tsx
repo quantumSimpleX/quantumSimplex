@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 export default function RevealProvider() {
   useEffect(() => {
+    const seen = new WeakSet<Element>();
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -17,8 +18,9 @@ export default function RevealProvider() {
     );
 
     const scan = () => {
-      document.querySelectorAll('[data-reveal]:not([data-rv-seen])').forEach((el) => {
-        el.setAttribute('data-rv-seen', '');
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        if (seen.has(el)) return;
+        seen.add(el);
         observer.observe(el);
       });
     };
