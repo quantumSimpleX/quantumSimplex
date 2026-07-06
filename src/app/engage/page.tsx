@@ -28,6 +28,8 @@ export default function EngagePage() {
           <iframe
             src={booking.url}
             title="Schedule a call with Dr. Michael Wu"
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
             style={{ background: 'white' }}
           />
         </div>

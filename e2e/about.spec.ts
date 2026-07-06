@@ -10,7 +10,7 @@ test.describe('About page', () => {
   test('shows portrait image', async ({ page }) => {
     const portrait = page.locator('.qs-abt-portrait img');
     await expect(portrait).toBeVisible();
-    await expect(portrait).toHaveAttribute('src', '/portrait.jpg');
+    await expect(portrait).toHaveAttribute('src', '/images/portrait.jpg');
   });
 
   test('shows Background bio block', async ({ page }) => {
@@ -21,8 +21,8 @@ test.describe('About page', () => {
     await expect(page.getByRole('heading', { name: 'SPEAKING' })).toBeVisible();
   });
 
-  test('shows WRITING archive section', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'WRITING' })).toBeVisible();
+  test('shows WHY QUANTUM SIMPLEX section', async ({ page }) => {
+    await expect(page.getByRole('heading', { name: 'WHY QUANTUM SIMPLEX' })).toBeVisible();
   });
 
   test('has LinkedIn external link', async ({ page }) => {

@@ -28,6 +28,7 @@ export default function ContentCard({ item }: { item: ContentItem }) {
           src={`https://img.youtube.com/vi/${ytId}/hqdefault.jpg`}
           alt={item.title}
           className="qs-content-thumb"
+          loading="lazy"
         />
       ) : (
         <p className="qs-content-title">{item.title}</p>

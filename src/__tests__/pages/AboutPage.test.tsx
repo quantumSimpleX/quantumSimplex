@@ -3,11 +3,6 @@ import { render, screen } from '@testing-library/react';
 import AboutPage from '@/app/about/page';
 import { about, content } from '@/lib/data';
 
-const majorPress = new Set([
-  'TechCrunch', 'ZDNet', 'CMSWire', 'The AI Journal', 'PhocusWire',
-  'Business Travel News', 'DevPro Journal', 'Information Age',
-]);
-
 describe('AboutPage', () => {
   it('renders the DR. MICHAEL WU heading', () => {
     render(<AboutPage />);
@@ -19,22 +14,24 @@ describe('AboutPage', () => {
     expect(screen.getByRole('heading', { name: 'SPEAKING' })).toBeInTheDocument();
   });
 
-  it('renders the WRITING heading', () => {
+  it('renders the WHY QUANTUM SIMPLEX heading', () => {
     render(<AboutPage />);
-    expect(screen.getByRole('heading', { name: 'WRITING' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'WHY QUANTUM SIMPLEX' })).toBeInTheDocument();
   });
 
   it('renders the portrait image with alt=about.name', () => {
     render(<AboutPage />);
     const portrait = screen.getByAltText(about.name);
     expect(portrait.tagName).toBe('IMG');
-    expect(portrait).toHaveAttribute('src', '/portrait.jpg');
+    expect(portrait).toHaveAttribute('src', '/images/portrait.jpg');
   });
 
   it('all speaking items link to their video URLs', () => {
     const { container } = render(<AboutPage />);
     const videoUrls = new Set(content.filter((c) => c.type === 'video').map((c) => c.url));
-    const speakingSection = container.querySelector('.qs-abt-section');
+    const sections = [...container.querySelectorAll('.qs-abt-section')];
+    const speakingSection = sections.find((section) => section.textContent?.includes('SPEAKING'));
+    expect(speakingSection).toBeDefined();
     const links = speakingSection!.querySelectorAll('.qs-archive-link');
     expect(links.length).toBe(videoUrls.size);
     links.forEach((link) => {
@@ -42,15 +39,11 @@ describe('AboutPage', () => {
     });
   });
 
-  it('writing items are all articles from the major-press set', () => {
+  it('renders all three why Quantum Simplex levels', () => {
     render(<AboutPage />);
-    const expectedWriting = content.filter(
-      (c) => c.type === 'article' && majorPress.has(c.source)
-    );
-    expect(expectedWriting.length).toBeGreaterThan(0);
-    for (const item of expectedWriting) {
-      expect(screen.getByText(item.title)).toBeInTheDocument();
-    }
+    expect(screen.getByText('Level 01')).toBeInTheDocument();
+    expect(screen.getByText('Level 02')).toBeInTheDocument();
+    expect(screen.getByText('Level 03')).toBeInTheDocument();
   });
 
   it('has an external LinkedIn link', () => {

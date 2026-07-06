@@ -28,11 +28,13 @@ export default function Footer() {
               src="/assets/logo-black.svg"
               alt="Quantum Simplex"
               className="qs-footer-logo qs-footer-logo--light"
+              loading="lazy"
             />
             <img
               src="/assets/logo-white.svg"
               alt="Quantum Simplex"
               className="qs-footer-logo qs-footer-logo--dark"
+              loading="lazy"
             />
           </Link>
           <p>AI Transformation Advisory.<br />Plain words. Real results.</p>
