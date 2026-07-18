@@ -24,9 +24,9 @@ Quantum Simplex is a three-level advisory practice, one level per stage of the f
 
 | Level | Focus | Catalytic Ignition | Enduring Stewardship |
 |---|---|---|---|
-| **1: Inspire** | Change mindset | Strategic keynotes for boards, executives, and conferences | Foundational AI/ML literacy education at workforce scale |
-| **2: Mobilize** | Change behavior | AI product strategy — which initiatives create defensible advantage | Internal AI adoption — behavior-change programs tied to adoption KPIs |
-| **3: Transform** | Change operations | AI-centric workflow re-engineering of core functions | Human-centric growth — reskilling and role redesign for an AI-augmented org |
+| **1-Inspire** | Change mindset | Strategic keynotes for boards, executives, and conferences | Foundational AI/ML literacy education at workforce scale |
+| **2-Mobilize** | Change behavior | AI product strategy — which initiatives create defensible advantage | Internal AI adoption — behavior-change programs tied to adoption KPIs |
+| **3-Transform** | Change operations | AI-centric workflow re-engineering of core functions | Human-centric growth — reskilling and role redesign for an AI-augmented org |
 
 The site itself is the front door to that practice: it explains the framework, showcases two decades of speaking and writing on AI, data, and human behavior, and routes qualified conversations into a booking flow.
 
